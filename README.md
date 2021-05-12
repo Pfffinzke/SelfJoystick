@@ -1,9 +1,9 @@
-##SelfJoystick
+SelfJoystick
 
 This is a PoC for a Joystick armor testing program.
 Joystick buttons are displayed on the body and thank to Joystick usb bridge, I can interact with game.
 
-##Installation
+Installation
 
 Before you can run 'make all', you have to open the Makefile and insert the paths to your sfml installations where indicated.
 
