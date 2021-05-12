@@ -29,7 +29,7 @@ bool pressed = false;
 int main() {
 	
 // Create the main window
-sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
+sf::RenderWindow window(sf::VideoMode(480, 320), "SFML window");
 
 //get information about the joystick
 sf::Joystick::Identification id = sf::Joystick::getIdentification(0);
@@ -47,8 +47,8 @@ if (!font.loadFromFile("aAkuilah.ttf"))
 		sf::Text Life;
 		Life.setFont(font);
 		Life.setColor(sf::Color::Red);
-		Life.setPosition(300.0f, 200.0f);
-		Life.setCharacterSize(250);
+		Life.setPosition(140.0f,50.0f);
+		Life.setCharacterSize(200);
 		Life.setStyle(sf::Text::Bold);
 		Life.setOutlineColor(sf::Color(125, 0, 8));
 		Life.setOutlineThickness(3.0f);
@@ -97,13 +97,18 @@ while (window.isOpen())
         // Clear screen
         window.clear();
         // Draw the string
-        if (current_life > 0){
+        if (current_life >= 1){
+        			Life.setPosition(140.0f,50.0f);
+        			Life.setCharacterSize(200);
         		Life.setString(std::to_string((int)(current_life)));
         }
-        else{
-        	current_life=0;
-        	Life.setPosition(10.0f, 200.0f);
-        	Life.setString("DEAD");
+        else if (current_life == 0){
+        	Life.setPosition(30.0f, 80.0f);
+        	Life.setCharacterSize(130);
+        		Life.setString("DEAD");
+        }
+       else if (current_life < 0){
+        	current_life=10;
         }
         window.draw(Life);
         // Update the window
