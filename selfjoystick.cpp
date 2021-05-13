@@ -61,9 +61,18 @@ while (window.isOpen())
 		while (window.pollEvent(event))
         {
         	// Close window: exit
-          if (event.type == sf::Event::Closed)
-          	window.close();
-        }
+          	if (event.type == sf::Event::Closed) {
+				window.close();
+			} else if (event.type == sf::Event::KeyPressed) {
+				// the user interface: SPACE pauses and plays, ESC quits
+				switch (event.key.code) {
+        case sf::Keyboard::Escape:
+					  std::cout << "press escape - escape" << std::endl;
+						window.close();
+						break;
+					}
+				}
+			}
         
         if(event.type == sf::Event::JoystickButtonPressed && pressed==false) {
 					switch (event.joystickButton.button) {
